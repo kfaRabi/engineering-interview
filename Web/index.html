@@ -3,38 +3,57 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Countdown Timer</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 		<link rel="stylesheet" href="style.css">
 
 	</head>
 	<body>
 		<div class="container">
-			<h1> Countdown Timer</h1>
-			<ul>
-				<li>
-					<span id="days">00</span>
-					<br />
-					<span>DAYS</span>
-				</li>
-				<li class="separator">:</li>
-				<li>
-					<span id="hours">00</span>
-					<br />
-					<span>HOURS</span>
-				</li>
-				<li class="separator">:</li>
-				<li>
-					<span id="minutes">00</span>
-					<br />
-					<span>MINUTES</span>
-				</li>
-				<li class="separator">:</li>
-				<li>
-					<span id="seconds">00</span>
-					<br />
-					<span>SECONDS</span>
-				</li>
-			</ul>
+			<div id="countdown-area">
+				<h1> Countdown Timer</h1>
+				<ul>
+					<li>
+						<span id="days">00</span>
+						<br />
+						<span>DAYS</span>
+					</li>
+					<li class="separator">:</li>
+					<li>
+						<span id="hours">00</span>
+						<br />
+						<span>HOURS</span>
+					</li>
+					<li class="separator">:</li>
+					<li>
+						<span id="minutes">00</span>
+						<br />
+						<span>MINUTES</span>
+					</li>
+					<li class="separator">:</li>
+					<li>
+						<span id="seconds">00</span>
+						<br />
+						<span>SECONDS</span>
+					</li>
+				</ul>
+			</div><!-- End of countdown timer -->
+			<hr />
+			<div class="row">
+				<div class="row">
+				  <div class="input-field col s12">
+					 <h2>Enter A Future Date</h2>
+					<input id="future_date" type="date" class="validate">
+				  </div>
+				</div>
+				<div class="row">
+				  <div class="input-field col s12">
+					<a href="#" onclick="handleCountdownClick()" class="btn green black-text">Start Countdown</a>
+				  </div>
+				</div>
+			</div><!-- End of target date input field -->
+
 		</div>
+
 
 
 		<script type="text/javascript" src="script.js"></script>
