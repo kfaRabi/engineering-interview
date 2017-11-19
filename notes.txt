@@ -1,0 +1,6 @@
+Mysterious Sum
+https://toph.co/p/mysterious-sum
+-----------------------------------------
+First part of the result is: A + B
+Second part of the result is: ABS(A - B)
+Then, concatenate both the parts;

@@ -7,11 +7,20 @@ const daysSpan = document.getElementById("days");
 const hoursSpan = document.getElementById("hours");
 const minutesSpan = document.getElementById("minutes");
 const secondsSpan = document.getElementById("seconds");
+const message = document.getElementById("message");
 
 // calculate remaining days, hours, minutes and seconds given a target time
 function calculateRemainingTime(targetDate){
 
-	const differenceInSeconds = Math.round((targetDate.getTime() - Date.now()) / 1000);
+	let differenceInSeconds = Math.round((targetDate.getTime() - Date.now()) / 1000);
+
+	if(differenceInSeconds < 0){
+		differenceInSeconds = 0;
+		message.textContent = "Please enter a a valid future date.";
+	}
+	else{
+		message.textContent = '';
+	}
 
 	const H = 24, M = 60, S = 60;
 
