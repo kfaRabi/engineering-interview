@@ -1,3 +1,5 @@
+// ref: http://2ality.com/2015/01/es6-maps-sets.html
+
 const arr = [1, 1, 2, '', 4, 6, 'hello', 7, 8, 'toString', 8, 8, 'world'];
 
 function uncount(arr){

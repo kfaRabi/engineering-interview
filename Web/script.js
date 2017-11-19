@@ -1,7 +1,8 @@
-// form the date
-const targetDate = new Date(2018, 0, 1, 0, 0, 0);
+// form an initial date of Jan 1, 2017
+const targetDate = new Date(2018, 0, 1, 0, 0, 0); //  ref: https://www.w3schools.com/js/js_dates.asp
 
-// create DOM element's reference
+
+// create DOM elements' reference
 const daysSpan = document.getElementById("days");
 const hoursSpan = document.getElementById("hours");
 const minutesSpan = document.getElementById("minutes");
@@ -17,47 +18,38 @@ function calculateRemainingTime(targetDate){
 	let days, hours, minutes, seconds, rem;
 
 	days = Math.round(differenceInSeconds / (H * M * S));
+
+	// rem: remaining hours
 	rem = differenceInSeconds % (H * M * S);
 	hours = Math.round(rem / (M * S));
+
+	// rem: remaining minutes
 	rem = rem % (M * S);
 	minutes = Math.round(rem / S);
+
 	seconds = rem % S;
 
-	// setInterval(() => populateDOM(days, hours, minutes, seconds), 1000);
-
+	// append a '0' with all the values those have only one digit in them
 	days = (days < 10 ? ("0" + days) : days);
 	hours = (hours < 10 ? ("0" + hours) : hours);
 	minutes = (minutes < 10 ? ("0" + minutes) : minutes);
 	seconds = (seconds < 10 ? ("0" + seconds) : seconds);
 
-
+	// set the values to appropriate dom elements
 	daysSpan.textContent = days;
 	hoursSpan.textContent = hours;
 	minutesSpan.textContent = minutes;
 	secondsSpan.textContent = seconds;
-
-	// console.log(days, hours, minutes, seconds);
 }
 
-// populate DOM elements using the newly calculated values
-// function populateDOM(d, h, m, s){
-// 	// days.textContent = d;
-// 	// hours.textContent = h;
-// 	// minutes.textContent = m;
-// 	// seconds.textContent = s;
-//
-// 	console.log(days.textContent);
-// }
 
 
 
-// calculateRemainingTime(targetDate);
-
- // const calculateRemainingTimeInterval = (targetDate) => setInterval(() => {calculateRemainingTime(targetDate)}, 1000);
+// initially start countdown for Jan 1, 2018;
  let hook = setInterval(() => {calculateRemainingTime(targetDate)}, 1000);
 
- // calculateRemainingTimeInterval(targetDate);
 
+// start a new countdown once user enters a new valid future date
 function handleCountdownClick(){
 	const future_date_field = document.getElementById("future_date");
 	let future_date_string = future_date_field.value;
@@ -70,8 +62,4 @@ function handleCountdownClick(){
 	clearInterval(hook);
 
 	hook = setInterval(() => {calculateRemainingTime(future_date)}, 1000);
-
-	// calculateRemainingTimeInterval(future_date);
-
-	// console.log(future_date_string, future_date);
 }
